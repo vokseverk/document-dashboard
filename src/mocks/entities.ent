@@ -1,0 +1,13 @@
+<!--
+	Copy this file to the server and swap the IGNORE and INCLUDE keywords there, to make this work.
+-->
+<!ENTITY % use.in.umbraco "IGNORE">
+<!ENTITY % use.in.textmate "INCLUDE">
+
+<![ %use.in.umbraco; [
+	<!ENTITY compatibility "">
+]]>
+
+<![ %use.in.textmate; [
+	<!ENTITY compatibility '<xsl:import href="mocks/_UmbracoLibrary.xslt" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" /><xsl:import href="mocks/_uComponentsExtensions.xslt" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" />'>
+]]>
