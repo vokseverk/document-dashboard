@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE umbPackage [
+	<!ENTITY % version SYSTEM "version.ent">
+	%version;
+]>
+<umbPackage>
+	<files>
+		<file>
+			<guid>DocumentDashboard.xslt</guid>
+			<orgPath>/xslt</orgPath>
+			<orgName>DocumentDashboard.xslt</orgName>
+		</file>
+	</files>
+	<info>
+		<package>
+			<name>Document Dashboard</name>
+			<version>&packageVersion;</version>
+			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
+			<url>http://our.umbraco.org/projects/backoffice-extensions/document-dashboard</url>
+			<requirements>
+				<major>4</major>
+				<minor>5</minor>
+				<patch>2</patch>
+			</requirements>
+		</package>
+		<author>
+			<name>Chriztian Steinmeier</name>
+			<website>http://vokseverk.dk</website>
+		</author>
+		<readme><include xmlns="http://www.w3.org/2001/XInclude" href="../README.md" parse="text" /></readme>
+	</info>
+	<DocumentTypes />
+	<Templates />
+	<Stylesheets />
+	<Macros>
+		<macro>
+			<name>Document Dashboard</name>
+			<alias>DocumentDashboard</alias>
+			<scriptType>
+			</scriptType>
+			<scriptAssembly>
+			</scriptAssembly>
+			<xslt>DocumentDashboard.xslt</xslt>
+			<useInEditor>False</useInEditor>
+			<refreshRate>0</refreshRate>
+			<properties />
+		</macro>
+	</Macros>
+	<DictionaryItems />
+	<Languages />
+	<DataTypes />
+	<control />
+	<Actions />
+</umbPackage>
