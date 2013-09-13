@@ -2,18 +2,26 @@
 <!DOCTYPE umbPackage [
 	<!ENTITY % version SYSTEM "version.ent">
 	%version;
+
+	<!ENTITY PackageName "Document Dashboard">
+	<!ENTITY XSLTFile "DocumentDashboard">
+
+	<!ENTITY DataTypeName "&PackageName;">
+	<!ENTITY MacroName "&PackageName;">
+	<!ENTITY MacroAlias "&XSLTFile;">
+
 ]>
 <umbPackage>
 	<files>
 		<file>
-			<guid>DocumentDashboard.xslt</guid>
+			<guid>&XSLTFile;.xslt</guid>
 			<orgPath>/xslt</orgPath>
-			<orgName>DocumentDashboard.xslt</orgName>
+			<orgName>&XSLTFile;.xslt</orgName>
 		</file>
 	</files>
 	<info>
 		<package>
-			<name>Document Dashboard</name>
+			<name>&PackageName;</name>
 			<version>&packageVersion;</version>
 			<license url="http://www.opensource.org/licenses/mit-license.php">MIT license</license>
 			<url>http://our.umbraco.org/projects/backoffice-extensions/document-dashboard</url>
@@ -34,13 +42,13 @@
 	<Stylesheets />
 	<Macros>
 		<macro>
-			<name>Document Dashboard</name>
-			<alias>DocumentDashboard</alias>
+			<name>&MacroName;</name>
+			<alias>&MacroAlias;</alias>
 			<scriptType>
 			</scriptType>
 			<scriptAssembly>
 			</scriptAssembly>
-			<xslt>DocumentDashboard.xslt</xslt>
+			<xslt>&XSLTFile;.xslt</xslt>
 			<useInEditor>False</useInEditor>
 			<refreshRate>0</refreshRate>
 			<properties />
@@ -48,7 +56,13 @@
 	</Macros>
 	<DictionaryItems />
 	<Languages />
-	<DataTypes />
+	<DataTypes>
+		<DataType Name="&DataTypeName;" Id="254a6a3b-ba90-4e71-bde2-2ef7e2578485" Definition="cd85a768-97ea-465f-b452-5dee1b7fa620" DatabaseType="Ntext">
+			<PreValues>
+				<PreValue Id="24" Value="{&quot;ShowLabel&quot;:false,&quot;MacroTag&quot;:&quot;\u003c?UMBRACO_MACRO  macroalias=\&quot;&MacroAlias;\&quot;  /\u003e&quot;}" />
+			</PreValues>
+		</DataType>
+	</DataTypes>
 	<control />
 	<Actions />
 </umbPackage>
