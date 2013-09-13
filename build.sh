@@ -1,3 +1,11 @@
+XSLT_FILE=DocumentDashboard
+PACKAGE_NAME=Vokseverk.DocumentDashboard
+
+UMBOFF="umbraco \"IGNORE\""
+UMBON="umbraco \"INCLUDE\""
+TMOFF="textmate \"IGNORE\""
+TMON="textmate \"INCLUDE\""
+
 # Create the dist directory if needed
 if [[ ! -d dist ]]
 	then mkdir dist
@@ -10,8 +18,12 @@ fi
 # Get the current version
 VERSION=`grep -o ' packageVersion \"\(.*\)\"' src/version.ent | awk '{print $2}' | sed 's/"//g'`
 
+# Make sure to use the PRODUCTION entities
+sed -i "" "s/$UMBOFF/$UMBON/" src/mocks/entities.ent
+sed -i "" "s/$TMON/$TMOFF/" src/mocks/entities.ent
+
 # Transform the development XSLT to a release file
-xsltproc --novalid --xinclude --output package/DocumentDashboard.xslt lib/freezeEntities.xslt src/DocumentDashboard.xslt
+xsltproc --novalid --xinclude --output package/$XSLT_FILE.xslt lib/freezeEntities.xslt src/$XSLT_FILE.xslt
 # Transform the package.xml file, pulling in the README
 xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xslt src/package.xml
 
@@ -19,7 +31,11 @@ xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xs
 # None yet...
 
 # Build the ZIP file 
-zip -j "dist/Vokseverk.DocumentDashboard-$VERSION.zip" package/* -x \*.DS_Store
+zip -j "dist/$PACKAGE_NAME-$VERSION.zip" package/* -x \*.DS_Store
 
 # Copy the release XSLT into the dist dir for upgraders
-cp package/DocumentDashboard.xslt dist/DocumentDashboard.xslt
+cp package/$XSLT_FILE.xslt dist/$XSLT_FILE.xslt
+
+# Go back to DEVELOPMENT versions again
+sed -i "" "s/$UMBON/$UMBOFF/" src/mocks/entities.ent
+sed -i "" "s/$TMOFF/$TMON/" src/mocks/entities.ent
