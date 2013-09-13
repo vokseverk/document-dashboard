@@ -6,7 +6,7 @@
 -->
 <?umbraco-package "Document Dashboard (v0.1)"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umb="urn:umbraco.library" version="1.0" exclude-result-prefixes="umb">
-	<xsl:import href="mocks/_UmbracoLibrary.xslt"/><xsl:import href="mocks/_uComponentsExtensions.xslt"/>
+	
 	
 	<xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
 
