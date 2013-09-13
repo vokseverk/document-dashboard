@@ -7,6 +7,9 @@ if [[ ! -d package ]]
 	then mkdir package
 fi
 
+# Get the current version
+VERSION=`grep -o ' packageVersion \"\(.*\)\"' src/version.ent | awk '{print $2}' | sed 's/"//g'`
+
 # Transform the development XSLT to a release file
 xsltproc --novalid --xinclude --output package/DocumentDashboard.xslt lib/freezeEntities.xslt src/DocumentDashboard.xslt
 # Transform the package.xml file, pulling in the README
@@ -16,7 +19,7 @@ xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xs
 # None yet...
 
 # Build the ZIP file 
-zip -j dist/Vokseverk.DocumentDashboard.zip package/* -x \*.DS_Store
+zip -j "dist/Vokseverk.DocumentDashboard-$VERSION.zip" package/* -x \*.DS_Store
 
 # Copy the release XSLT into the dist dir for upgraders
 cp package/DocumentDashboard.xslt dist/DocumentDashboard.xslt
