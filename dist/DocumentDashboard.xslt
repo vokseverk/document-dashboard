@@ -26,5 +26,10 @@
 	<xsl:template match="*[@isDoc]" mode="editLink">
 		<a href="/umbraco/editContent.aspx?id={@id}" title="Click to edit...">Edit</a>
 	</xsl:template>
+	
+<!-- :: Dashboards :: -->
+
+	<!-- Include your own templates here, e.g.:  -->
+	<!-- <xsl:include href="dashboards/NewsItem.xslt" /> -->
 
 </xsl:stylesheet>
