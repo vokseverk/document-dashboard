@@ -16,7 +16,10 @@ you need [uComponents][UCOM] installed for it to work.
 * Install the [package][RELEASE] as any other package, from the Developer section of Umbraco
 * Add a property to any DocumentType you want using the "Document Dashboard" DataType installed, and you can have a custom dashboard for them
 
-[RELEASE]: releases
+[RELEASE]: https://github.com/vokseverk/document-dashboard/releases
 
 ## Customization
 
+You can use XSLT's awesome templating mechanism to create custom dashboards for your specific types of documents, just
+by adding them to the `CustomDashboards.xslt` file — there's a simple demo of an *images* mode to show how you can
+create a wall of images, e.g. for a `People` container showing an image from all the child nodes.
