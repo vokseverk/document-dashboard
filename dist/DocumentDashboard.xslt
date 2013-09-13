@@ -4,7 +4,7 @@
 	
 	Implement a simple dashboard for any Document Type in your tree.
 -->
-<?umbraco-package "Document Dashboard (v0.1)"?>
+<?umbraco-package "Document Dashboard (v0.2)"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umb="urn:umbraco.library" version="1.0" exclude-result-prefixes="umb">
 	
 	
