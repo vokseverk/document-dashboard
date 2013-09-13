@@ -14,10 +14,9 @@ you need [uComponents][UCOM] installed for it to work.
 ## Installation
 
 * Install the [package][RELEASE] as any other package, from the Developer section of Umbraco
-* Create a DataType using the **uComponents: RenderMacro** render control and choose the **Document Dashboard** macro on the property editor
-* Add a property to any DocumentType you want using the new DataType you created, and you can have a custom dashboard for them
+* Add a property to any DocumentType you want using the "Document Dashboard" DataType installed, and you can have a custom dashboard for them
 
-[RELEASE]: #todo
+[RELEASE]: releases
 
 ## Customization
 
