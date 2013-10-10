@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<x:description
+	stylesheet="../../package/DocumentDashboard.xslt"
+	xslt-version="1.0"
+	xmlns:x="http://www.jenitennison.com/xslt/xspec"
+>
+	<x:scenario label="when processing an element in 'editLink' mode">
+		<x:context mode="editLink">
+			<Textpage id="306" nodeName="Home" urlName="home" level="1" isDoc="">
+				<umbracoNaviHide>0</umbracoNaviHide>
+			</Textpage>
+		</x:context>
+		<x:expect label="it should produce a link to the editContent.aspx page">
+			<a href="/umbraco/editContent.aspx?id=306" title="...">...</a>
+		</x:expect>
+	</x:scenario>
+	
+	<x:scenario label="when processing an element in 'editLinkImage' mode">
+		<x:context mode="editLinkImage" />
+		
+		<x:scenario label="with an umbracoFile property">
+			<x:context>
+				<Textpage id="28300" nodeName="Rock Star" urlName="rockstar" level="2" isDoc="">
+					<umbracoFile>/rockstar.png</umbracoFile>
+				</Textpage>
+			</x:context>
+			<x:expect label="it should produce a linked figure" test="a/figure">
+				<figure>
+					<img src="/rockstar_thumb.jpg" alt="Rock Star" />
+					<figcaption>Rock Star</figcaption>
+				</figure>
+			</x:expect>
+		</x:scenario>
+		
+		<x:scenario label="with no umbracoFile property, providing the image param">
+			<x:context>
+				<x:param name="image" select="'fileImage'" />
+				
+				<Textpage id="28300" nodeName="Rock Star" urlName="rockstar" level="2" isDoc="">
+					<fileImage>/rockstar2.png</fileImage>
+				</Textpage>
+			</x:context>
+			<x:expect label="it should produce a linked figure using the correct image" test="a/figure">
+				<figure>
+					<img src="/rockstar_thumb.jpg" alt="Rock Star" />
+					<figcaption>Rock Star</figcaption>
+				</figure>
+			</x:expect>
+		</x:scenario>
+		
+	</x:scenario>
+
+</x:description>
