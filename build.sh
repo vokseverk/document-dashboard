@@ -28,7 +28,7 @@ xsltproc --novalid --xinclude --output package/$XSLT_FILE.xslt lib/freezeEntitie
 xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xslt src/package.xml
 
 # Copy files to package
-# None yet...
+cp src/_Dashboards.xslt package/
 
 # Build the ZIP file 
 zip -j "dist/$PACKAGE_NAME-$VERSION.zip" package/* -x \*.DS_Store
