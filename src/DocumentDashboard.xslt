@@ -38,7 +38,10 @@
 	
 <!-- :: Dashboards :: -->
 
-	<!-- Include your own templates here, e.g.:  -->
-	<!-- <xsl:include href="dashboards/NewsItem.xslt" /> -->
+	<!--
+	Don't add your own dashboards to this file, but add them to the included file.
+	It's easier to upgrade if your custom code is in a separate file.
+	-->
+	<xsl:include href="_Dashboards.xslt" />
 
 </xsl:stylesheet>
