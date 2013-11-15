@@ -58,11 +58,17 @@
 	specify another property to use for the caption if you don't want to use `@nodeName`.
 	-->
 	<xsl:template match="*[@isDoc]" mode="editLinkImage">
-		<xsl:param name="image" select="umbracoFile" />
+		<xsl:param name="image" />
 		<xsl:param name="caption" select="@nodeName" />
-
-		<xsl:variable name="extension" select="substring($image, (string-length($image) - 3))" />
-		<xsl:variable name="thumbnail" select="concat(substring-before($image, $extension), '_thumb.jpg')" />
+		
+		<!--
+		This is fairly safe to do, unless you have a property named exactly the same as an
+		image in the umbracoFile property. Not likely to happen :-)
+		-->
+		<xsl:variable name="filename" select="*[not(@isDoc)][name() = $image] | umbracoFile" />
+		
+		<xsl:variable name="extension" select="substring($filename, (string-length($filename) - 3))" />
+		<xsl:variable name="thumbnail" select="concat(substring-before($filename, $extension), '_thumb.jpg')" />
 		<a href="&editContentLink;" title="Click to edit...">
 			<figure>
 				<img src="{$thumbnail}" alt="{$caption}" />
