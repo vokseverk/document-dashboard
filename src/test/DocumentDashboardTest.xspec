@@ -42,7 +42,7 @@
 			</x:context>
 			<x:expect label="it should produce a linked figure using the correct image" test="a/figure">
 				<figure>
-					<img src="/rockstar_thumb.jpg" alt="Rock Star" />
+					<img src="/rockstar2_thumb.jpg" alt="Rock Star" />
 					<figcaption>Rock Star</figcaption>
 				</figure>
 			</x:expect>
