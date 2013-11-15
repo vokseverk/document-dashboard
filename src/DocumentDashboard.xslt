@@ -62,8 +62,9 @@
 		<xsl:param name="caption" select="@nodeName" />
 		
 		<!--
-		This is fairly safe to do, unless you have a property named exactly the same as an
-		image in the umbracoFile property. Not likely to happen :-)
+		Grab either the property named in the `$image` parameter, or the `umbracoFile` property.
+		This is safe to do, unless you have a property named exactly the same as an
+		image in the umbracoFile property. Which is not very likely to happen :-)
 		-->
 		<xsl:variable name="filename" select="*[not(@isDoc)][name() = $image] | umbracoFile" />
 		
