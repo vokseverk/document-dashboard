@@ -27,7 +27,7 @@ xsltproc --novalid --xinclude --output package/$XSLT_FILE.xslt lib/freezeEntitie
 # Transform the package.xml file, pulling in the README
 xsltproc --novalid --xinclude --output package/package.xml lib/freezeEntities.xslt src/package.xml
 
-# Copy files to package
+# Copy additional file(s) to package
 cp src/_Dashboards.xslt package/
 
 # Build the ZIP file 
