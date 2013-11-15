@@ -4,7 +4,7 @@
 	
 	Implement a simple dashboard for any Document Type in your tree.
 -->
-<?umbraco-package "Document Dashboard (v0.3)"?>
+<?umbraco-package "Document Dashboard (v0.3.1)"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:umb="urn:umbraco.library" version="1.0" exclude-result-prefixes="umb">
 	
 	
@@ -47,11 +47,18 @@
 	specify another property to use for the caption if you don't want to use `@nodeName`.
 	-->
 	<xsl:template match="*[@isDoc]" mode="editLinkImage">
-		<xsl:param name="image" select="umbracoFile"/>
+		<xsl:param name="image"/>
 		<xsl:param name="caption" select="@nodeName"/>
-
-		<xsl:variable name="extension" select="substring($image, (string-length($image) - 3))"/>
-		<xsl:variable name="thumbnail" select="concat(substring-before($image, $extension), '_thumb.jpg')"/>
+		
+		<!--
+		Grab either the property named in the `$image` parameter, or the `umbracoFile` property.
+		This is safe to do, unless you have a property named exactly the same as an
+		image in the umbracoFile property. Which is not very likely to happen :-)
+		-->
+		<xsl:variable name="filename" select="*[not(@isDoc)][name() = $image] | umbracoFile"/>
+		
+		<xsl:variable name="extension" select="substring($filename, (string-length($filename) - 3))"/>
+		<xsl:variable name="thumbnail" select="concat(substring-before($filename, $extension), '_thumb.jpg')"/>
 		<a href="/umbraco/editContent.aspx?id={@id}" title="Click to edit...">
 			<figure>
 				<img src="{$thumbnail}" alt="{$caption}"/>
