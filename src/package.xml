@@ -5,6 +5,7 @@
 
 	<!ENTITY PackageName "Document Dashboard">
 	<!ENTITY XSLTFile "DocumentDashboard">
+	<!ENTITY DashboardsFile "_Dashboards">
 
 	<!ENTITY DataTypeName "&PackageName;">
 	<!ENTITY MacroName "&PackageName;">
@@ -17,6 +18,11 @@
 			<guid>&XSLTFile;.xslt</guid>
 			<orgPath>/xslt</orgPath>
 			<orgName>&XSLTFile;.xslt</orgName>
+		</file>
+		<file>
+			<guid>&DashboardsFile;.xslt</guid>
+			<orgPath>/xslt</orgPath>
+			<orgName>&DashboardsFile;.xslt</orgName>
 		</file>
 	</files>
 	<info>
